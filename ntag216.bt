@@ -1,0 +1,43 @@
+//------------------------------------------------
+//--- 010 Editor v9.0.1 Binary Template
+//
+//      File: 
+//   Authors: 
+//   Version: 
+//   Purpose: 
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+struct FILE {
+    struct Manufacturer_block {
+        char Tag_Version[8] <fgcolor=cDkRed>;
+        char RFU [8];
+        char ECC_Sig [32]<fgcolor=cGray>;
+        char Card_UID1 [3]<fgcolor=cYellow>;
+        char BCC0 [1];
+        char Card_UID2 [4]<fgcolor=cYellow>;
+        char BCC1 [1];
+        char Internal [1];
+        char Stat_Lock_Bytes [2]<fgcolor=cRed>;
+        char Capability_Container [4]<fgcolor=cDkBlue>;
+}manufacturer_block;
+
+     struct User_Memory {
+        char Data [887]<fgcolor=cWhite>;
+}user_memory;
+
+     struct Dynamic_Lock_Bytes {
+        char Lock_Bytes [3]<fgcolor=cYellow>;
+        char RFUI [1]<fgcolor=cYellow>;
+}dynamic_lock_bytes;
+
+     struct CFG_Pages {
+        char CFG0 [4];
+        char CFG1 [4];
+        char PWD  [4];
+        char PACK [2];
+        char RFUI [2];
+}cfg_pages; 
+} file;
